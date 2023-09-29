@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Diet Ninja</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    
-    <h1>DIET NINJA</h1>
-
-    <h2>This application will help you keep track of your daily caloric intake</h2>
-  
-    <script src="script.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Diet Ninja - Calorie Counter</title>
+</head>
+<body>
+    <header>
+        <h1>Diet Ninja</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Calorie Counter</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <section class="calorie-counter">
+            <h2>Calorie Counter</h2>
+            <form>
+                <label for="food-item">Food Item:</label>
+                <input type="text" id="food-item" name="food-item" required>
+                <label for="calories">Calories:</label>
+                <input type="number" id="calories" name="calories" required>
+                <button type="submit">Add Item</button>
+            </form>
+        </section>
+        <!-- Add more sections/content here -->
+    </div>
+    <footer>
+        &copy; 2023 Diet Ninja. All rights reserved.
+    </footer>
+</body>
 </html>
