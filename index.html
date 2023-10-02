@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
     <title>Diet Ninja - Calorie Counter</title>
 </head>
 <body>
     <header>
         <h1>Diet Ninja</h1>
+        <h3 id="time-display"></h3>
     </header>
     <nav>
         <ul>
@@ -26,7 +29,7 @@
                 <input type="text" id="food-item" name="food-item" required>
                 <label for="calories">Calories:</label>
                 <input type="number" id="calories" name="calories" required>
-                <button type="submit">Add Item</button>
+                <button type="submit">Add Food</button>
             </form>
         </section>
         <!-- Add more sections/content here -->
@@ -38,8 +41,8 @@
             <label for="food-item">Activity:</label>
             <input type="text" id="activity-item" name="activity-item" required>
             <label for="calories">Calories:</label>
-            <input type="number" id="calories" name="calories" required>
-            <button type="submit">Add Item</button>
+           <!-- <input type="number" id="calories" name="calories" required>-->
+            <button type="submit">Add Activity</button>
         </form>
       </section>
       <!-- Add more sections/content here -->
@@ -48,10 +51,15 @@
   <div class="calorie-counter">
     <section class="calorie-counter">
       <h3>Calorie Total</h3>
+      
     </section>
   </div>
     <footer>
         &copy; 2023 Diet Ninja. All rights reserved.
     </footer>
+
+    <script type="module" src="./assets/script.js"></script>
+    <script type="module" src="./assets/activity.js"></script>
+    
 </body>
 </html>
