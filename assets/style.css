@@ -104,3 +104,41 @@ footer {
         margin: 10px 0;
     }
 }
+/* Add this to your existing CSS or in a separate CSS file */
+.fitness-sources {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fitness-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 30%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fitness-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.fitness-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.fitness-card a {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.fitness-card a:hover {
+    background-color: #0056b3;
+}
