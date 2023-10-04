@@ -1,3 +1,4 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 /* Reset some default styles */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
