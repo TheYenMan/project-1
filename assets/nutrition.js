@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var nutritionForm = document.querySelector('.food-content form');
-    var calorieTotalElement = document.getElementById('calorie-total');
-    var totalCalories = 0; // Initialize total calories
+    var nutritionTotalElement = document.getElementById('nutrition-total');
+    var totalNutritionCalories = 0; // Initialize total calories
     
     
     nutritionForm.addEventListener('submit', function(event) {
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
             nutritionList.appendChild(listNutrition);
 
             // Update total calories
-            totalCalories += nutritionCalories;
-            calorieTotalElement.textContent = 'Activity calories: ' + Math.floor(totalCalories);
+            totalNutritionCalories += nutritionCalories;
+            nutritionTotalElement.textContent = 'Nutrition calories: ' + Math.floor(totalNutritionCalories);
         }
     })
     .catch((error) => {
@@ -51,5 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
     nutritionInput.value = '';
 });
 
+window.totalNutritionCalories = totalNutritionCalories;
+
 
 });
+

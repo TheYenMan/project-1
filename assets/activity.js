@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var activityForm = document.querySelector('.activity-content form');
-    var calorieTotalElement = document.getElementById('calorie-total');
-    var totalCalories = 0; // Initialize total calories
+    var activityTotalElement = document.getElementById('activity-total');
+    var totalActivityCalories = 0; // Initialize total calories
 
     activityForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
@@ -42,17 +42,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 activityList.appendChild(listActivity);
 
                 // Update total calories
-                totalCalories -= activityCalories;
-                calorieTotalElement.textContent = 'Activity calories: ' + totalCalories;
+                totalActivityCalories -= activityCalories;
+                activityTotalElement.textContent = 'Activity calories: ' + Math.floor(totalActivityCalories);
+
             }
+            
         })
         .catch((error) => {
             console.error('Error:', error.message);
         });
 
+
+
         // Clear the input field after adding the activity
         activityInput.value = '';
     });
 
-    
+
+    window.totalActivityCalories = totalActivityCalories;
 });
+
