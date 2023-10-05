@@ -14,14 +14,7 @@
         <h1>Diet Ninja</h1>
         <h3 id="time-display"></h3>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Calorie Counter</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    
     <div class="food-content">
         <section class="calorie-counter">
             <h2>Calories Consumed</h2>
@@ -29,7 +22,7 @@
                 <label for="food-item">Food Item:</label>
                 <input type="text" id="food-item" name="food-item" required>
                 <label for="calories">Calories:</label>
-                <!--  <input type="number" id="calories" name="calories" required>-->
+                <ul id="nutritionlist"></ul>
                 <button type="submit">Add Food</button>
             </form>
         </section>
@@ -42,7 +35,7 @@
             <label for="food-item">Activity:</label>
             <input type="text" id="activity-item" name="activity-item" required>
             <label for="calories">Calories:</label>
-           <!-- <input type="number" id="calories" name="calories" required>-->
+            <ul id="activitylist"></ul>
             <button type="submit">Add Activity</button>
         </form>
       </section>
@@ -51,8 +44,10 @@
   <div>
   <div class="calorie-counter">
     <section class="calorie-counter">
-      <h3>Calorie Total</h3>
-      
+      <h3>Calories Today</h3>
+      <p id="nutrition-total"></p>
+      <p id="activity-total"></p>
+      <p id="calorie-total">Total Calories: 0</p>
     </section>
   </div>
   <section class="fitness-sources">

@@ -5,6 +5,11 @@ body, h1, h2, h3, p, ul, li {
     padding: 0;
 }
 
+label {
+    font-size: 15px;
+}
+
+
 /* Set a background color and font for the entire page */
 body {
     background-color: #f4f4f4;
