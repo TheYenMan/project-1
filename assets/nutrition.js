@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var listNutrition = document.createElement('li');
             // Concatenate activity name and total calories with a separator
             var nutritionCalories = result[i].calories;
-            listNutrition.textContent = food + ' - ' + Math.floor(nutritionCalories) + ' cal' + " (" + currentTime + ")";
+            listNutrition.textContent = food + ' : ' + Math.floor(nutritionCalories) + ' cal' + " (" + currentTime + ")";
             nutritionList.appendChild(listNutrition);
 
             // Update total calories
