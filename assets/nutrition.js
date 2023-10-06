@@ -1,7 +1,21 @@
+var totalNutritionCalories = 0; // Initialize total calories
+
+var myPromise = new Promise((resolve, reject) => {
+
+    fat = 900;
+    carbs = 400;
+    protein  = 400;
+    
+    totalNutritionCalories = fat + carbs + protein;
+
+    resolve(totalNutritionCalories)
+  });
+    
 document.addEventListener('DOMContentLoaded', function() {
     var nutritionForm = document.querySelector('.food-content form');
     var nutritionTotalElement = document.getElementById('nutrition-total');
-    var totalNutritionCalories = 0; // Initialize total calories
+   
+    totalNutritionCalories += 1;
     
     
     nutritionForm.addEventListener('submit', function(event) {

@@ -1,3 +1,11 @@
+myPromise.then(function(totalNutritionCalories){
+    
+    totalActivity = 300;
+    totalNutritionCalories = totalNutritionCalories - totalActivity;
+
+    console.log(totalNutritionCalories)
+})
+
 document.addEventListener('DOMContentLoaded', function() {
     var activityForm = document.querySelector('.activity-content form');
     var activityTotalElement = document.getElementById('activity-total');
