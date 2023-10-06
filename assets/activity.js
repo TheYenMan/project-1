@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 activityList.appendChild(listActivity);
 
                 // Update total calories
-                totalActivityCalories -= activityCalories;
+                totalActivityCalories += activityCalories;
                 activityTotalElement.textContent = 'Activity calories: ' + Math.floor(totalActivityCalories);
 
             }
