@@ -1,68 +1,77 @@
 var roundedActivityCalories;
 // document.addEventListener('DOMContentLoaded', function() {
-    var activityForm = document.querySelector('.activity-content form');
-    var activityTotalElement = document.getElementById('activity-total');
-    var totalActivityCalories = 0; // Initialize total calories
+var activityForm = document.querySelector('.activity-content form');
+var activityTotalElement = document.getElementById('activity-total');
+var totalActivityCalories = 0; // Initialize total calories
 
+activityForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
 
-    activityForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+    var activityInput = document.getElementById('activity-item');
+    var activity = activityInput.value;
+    var activityList = document.getElementById('activitylist');
+    var currentTime = dayjs().format('h:mm a');
+    // Display the current time next to the activity input
+    var url = 'https://api.api-ninjas.com/v1/caloriesburned?activity=' + activity;
+    var apiKey = 'tVmjVkv8ropSYzdiyJMI8A==4xxqPwtUpB4dDOmg';
 
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'X-Api-Key': apiKey,
+        },
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Error response');
+        }
+        return response.json();
+    })
+    .then((result) => {
+        console.log(result);
+        for (var i = 0; i < 1; i++) {
+            var listActivity = document.createElement('li');
+            // Concatenate activity name and total calories with a separator
+            var activityCalories = result[i].total_calories;
+            listActivity.textContent = activity + ' - ' + activityCalories + ' cal' + " (" + currentTime + ")";
+            activityList.appendChild(listActivity);
 
-        var activityInput = document.getElementById('activity-item');
-        var activity = activityInput.value;
-        var activityList = document.getElementById('activitylist');
-        var currentTime = dayjs().format('h:mm a');
-        // Display the current time next to the activity input
-        var url = 'https://api.api-ninjas.com/v1/caloriesburned?activity=' + activity;
-        var apiKey = 'tVmjVkv8ropSYzdiyJMI8A==4xxqPwtUpB4dDOmg';
+            // Update total calories
+            totalActivityCalories += activityCalories;
+            roundedActivityCalories = Math.floor(totalActivityCalories);
+            activityTotalElement.textContent = 'Activity calories: ' + Math.floor(totalActivityCalories);
 
-
-        fetch(url, {
-            method: 'GET',
-            headers: {
-                'X-Api-Key': apiKey,
-            },
-        })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Error response');
-            }
-            return response.json();
-        })
-        .then((result) => {
-            console.log(result);
-            for (var i = 0; i < 1; i++) {
-                var listActivity = document.createElement('li');
-                // Concatenate activity name and total calories with a separator
-                var activityCalories = result[i].total_calories;
-                listActivity.textContent = activity + ' - ' + activityCalories + ' cal' + " (" + currentTime + ")";
-                activityList.appendChild(listActivity);
-
-
-                // Update total calories
-                totalActivityCalories += activityCalories;
-                roundedActivityCalories= Math.floor(totalActivityCalories)
-                activityTotalElement.textContent = 'Activity calories: ' + Math.floor(totalActivityCalories);
-                if(roundedActivityCalories && roundedNutritionCalories) {
-                    // console.log(roundedNutritionCalories-roundedActivityCalories)
+            if (roundedActivityCalories && roundedNutritionCalories) {
                     subtractCalories();
-                // console.log(roundedActivityCalories)
+                
             }
         }
     })
-        .catch((error) => {
-            console.error('Error:', error.message);
-        });
-        // Clear the input field after adding the activity
-        activityInput.value = '';
+    .catch((error) => {
+        console.error('Error:', error.message);
     });
-    window.totalActivityCalories = totalActivityCalories;
+
+    var activitySave = activityInput.value.trim();
+
+    if (activitySave) {
+        saveActivityToLocalStorage(activitySave);
+    }
+// Save activity to local storage
+function saveActivityToLocalStorage(activitySave) {
+    // Get the existing activity history from local storage (if any)
+    let activityHistory = JSON.parse(localStorage.getItem('activityHistory')) || [];
+
+    // Add the new activity to the history
+    activityHistory.push(activitySave);
+
+    // Save the updated history back to local storage
+    localStorage.setItem('activityHistory', JSON.stringify(activityHistory));
+}
+    // Clear the input field after adding the activity
+    activityInput.value = '';
+});
+
+
+
+window.totalActivityCalories = totalActivityCalories;
 // });
-
-
-
-
-
-
-
