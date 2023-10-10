@@ -36,11 +36,7 @@ window.onload = function() {
                 var listActivity = document.createElement('li');
                 var activityCalories = result[i].total_calories;
                 // Create an object representing the activity item
-                var activityItem = {
-                    name: activity,
-                    calories: result[i].total_calories,
-                    time: currentTime
-                };
+                
                 listActivity.textContent = activity + ' - ' + activityCalories + ' cal' + " (" + currentTime + ")";
             activityList.appendChild(listActivity);
 
@@ -54,7 +50,7 @@ window.onload = function() {
                 activityTotalElement.textContent = 'Activity calories: ' + Math.floor(totalActivityCalories);
 
                 // Save the updated activity list to local storage
-                saveActivityListToLocalStorage(activityList);
+                saveActivityListToLocalStorage(activityArray);
             }
         })
         .catch((error) => {
@@ -67,8 +63,16 @@ window.onload = function() {
 
     // Function to save the activity list to local storage
     function saveActivityListToLocalStorage(activityList) {
+
+        var activityItem = {
+            name: activity,
+            calories: result[i].total_calories,
+            time: currentTime
+        };
         // Save the entire activity list to local storage
         localStorage.setItem('activityHistory', JSON.stringify(activityList));
+
+
     }
     
     // Assign the totalActivityCalories to the global window object
