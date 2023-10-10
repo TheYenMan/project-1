@@ -28,11 +28,12 @@ Used W3 Schools (https://www.w3schools.com/)
 
 The following image demonstrates the web application's appearance:
 
-<img src=''/> 
+<img src='./assets/Screen Shot 2023-10-10 at 5.47.56 PM.png'/> 
 
 
 This is the github repo location:
 
+https://github.com/TheYenMan/project-1-dietninja-main.git
 
 This following is a link to the deployed application:
 
