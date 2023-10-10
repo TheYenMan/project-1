@@ -97,5 +97,6 @@ window.onload = function() {
 
     // Initialize the activity list
     initActivityList();
-    
+
+
 };
